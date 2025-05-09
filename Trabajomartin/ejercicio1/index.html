@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="numero" placeholder="Ingresa un número">
+  <button onclick="numero()">Verificar</button>
+  <p id="resultado"></p>
+
+  <script>
+    function numero() {
+      let numero = document.getElementById("numero").value;
+      let resultado = document.getElementById("resultado");
+
+      if (numero.trim() === "") {
+        resultado.textContent = "Por favor, ingresa un número.";
+        return;
+      }
+
+      const numeroConvertido = parseInt(numero, 10);
+
+      if (isNaN(numeroConvertido)) {
+        resultado.textContent = "El valor ingresado no es un número válido.";
+        return;
+      }
+
+      if (numeroConvertido % 2 === 0) {
+        resultado.textContent = "El número  " + numeroConvertido + " es par.";
+      } else {
+        resultado.textContent = "";
+      }
+    }
+  </script>
+</body>
+</html>
+1

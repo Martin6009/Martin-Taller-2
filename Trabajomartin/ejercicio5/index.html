@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  <h2>Aplicar descuento si el valor es mayor a 100,000</h2>
+
+  <label for="precioOriginal">Precio original:</label>
+  <input type="number" id="precioOriginal" placeholder="Ingresa el valor">
+  <br><br>
+  <button onclick="Descuento()">Calcular descuento</button>
+
+  <p id="mensajeResultado"></p>
+
+  <script>
+    function Descuento() {
+      
+      const montoInicial = parseFloat(document.getElementById("precioOriginal").value);
+      const mensajeResultado = document.getElementById("mensajeResultado");
+
+      if (montoInicial > 100000) {
+       
+        const montoDescuento = montoInicial * 0.20;
+        const montoFinal = montoInicial - montoDescuento;
+
+   mensajeResultado.textContent = "El precio con el descuento del 20% es: " + montoFinal.toLocaleString('es-CO', { style: 'decimal' });
+   
+} else {
+  mensajeResultado.textContent = "El monto ingresado es insuficiente para aplicar un descuento. Intenta con un valor mayor a 100,000.";
+  console.log("No se aplica descuento");
+}
+}
+  </script>
+</body>
+</html>
+5

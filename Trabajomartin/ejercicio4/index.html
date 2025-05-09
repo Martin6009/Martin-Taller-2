@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h2>Sumar dos números y comparar el resultado</h2>
+
+  <label for="input1">Número 1:</label>
+  <input type="number" id="input1" placeholder="Primer número">
+  <br><br>
+  <label for="input2">Número 2:</label>
+  <input type="number" id="input2" placeholder="Segundo número">
+  <br><br>
+  <button onclick="evaluarSuma()">Evaluar Suma</button>
+
+  <p id="Resultado"></p>
+
+  <script>
+    function evaluarSuma() {
+      
+      const valorA = parseFloat(document.getElementById("input1").value);
+      const valorB = parseFloat(document.getElementById("input2").value);
+      const resultadoSuma = valorA + valorB;
+
+      
+      const mensajeResultado = document.getElementById("resultado");
+
+      if (valorA > valorB) {
+        console.log("El resultado de la suma " + resultadoSuma + "es mayor que " + valorB);
+        mensajeResultado.textContent = "Resultado: " + resultadoSuma;
+      } else {
+        mensajeResultado.textContent = "El primer número no es mayor que el segundo.";
+      }
+    }
+  </script>
+</body>
+</html>
+4

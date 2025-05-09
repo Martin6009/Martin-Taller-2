@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Verificar si un número es mayor que 10</h2>
+
+  <input type="number" id="numero" placeholder="Ingresa un número">
+  <button onclick="Mayor()">Verificar</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function Mayor() {
+      const numero = parseFloat(document.getElementById("numero").value);
+      const resultado = document.getElementById("resultado");
+
+      if (isNaN(numero)) {
+        resultado.textContent = "Por favor, ingresa un número válido.";
+        return;
+      }
+
+      if (numero > 10) {
+        let triple = numero * 3;
+        resultado.textContent = "El número es mayor que 10. Su triple es: " + triple;
+      } else {
+        resultado.textContent = "El número no es mayor que 10.";
+      }
+    }
+  </script>
+
+</body>
+</html>
+2
