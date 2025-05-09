@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h2>Calculadora de Precio Final</h2>
+  <label for="valorProducto">Ingrese el valor del producto:</label>
+  <input type="number" id="valorProducto" placeholder="Ejemplo: 1500000">
+  <button onclick="obtenerPrecioFinal()">Calcular</button>
+  <div id="salida"></div>
+
+  <script>
+    function obtenerPrecioFinal() {
+      const entradaValor = parseFloat(document.getElementById("valorProducto").value);
+      const salida = document.getElementById("salida");
+
+      if (isNaN(entradaValor)) {
+        salida.textContent = "Por favor, ingrese un valor numérico válido.";
+        return;
+      }
+
+      let rebaja = 0;
+      if (entradaValor >= 1000000) {
+        rebaja = entradaValor * 0.10;
+      }
+
+      const valorConRebaja = entradaValor - rebaja;
+      const impuestoIVA = valorConRebaja * 0.19;
+      const totalPagar = valorConRebaja + impuestoIVA;
+
+
+      const formatoCOP = new Intl.NumberFormat('es-CO'); 
+
+      salida.innerHTML = `
+     <p>Valor original: ${formatoCOP.format(entradaValor)}</p>
+     <p>${rebaja > 0 ? 'Descuento aplicado (10%): ' + formatoCOP.format(rebaja) : 'No se aplica descuento.'}</p>
+     <p>IVA (19%): ${formatoCOP.format(impuestoIVA)}</p>
+     <strong>Total a pagar: ${formatoCOP.format(totalPagar)}</strong>`;
+     }
+    </script>
+</body>
+</html>
